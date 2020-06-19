@@ -1,3 +1,10 @@
+## ADP Marketplace Partners
+
+There are a few pre-requesites that you need to fullfill in order to use this library:
+- Replace the certifcates in this library with the ones you recieved from the [CSR Tool](https://apps.adp.com/apps/165104)
+- Update the client id and client secret with the ones supplied in your credentials document PDF
+- Update endpoints from ```https://iat-api.adp.com``` and ```https://iat-accounts.adp.com``` to  ```https://api.adp.com``` and ```https://accounts.adp.com```.
+
 # ADP Connection Client Library for Ruby
 
 The ADP Client Connection Library is intended to simplify and aid the process of authenticating, authorizing and connecting to the ADP Marketplace API Gateway. The Library includes a sample application that can be run out-of-the-box to connect to the ADP Marketplace API **test** gateway.
@@ -64,7 +71,7 @@ gem 'adp-connection'
 And then execute:
 
 ```sh
-    
+
     $ bundle install
 
 ```
@@ -188,7 +195,7 @@ Automated unit tests are available in tests folder. To run the tests, please com
 rake spec
 ```
 
-The above will also display test results. 
+The above will also display test results.
 
 ## Code Coverage ##
 
