@@ -128,8 +128,8 @@ module Adp
 
             useragent = "adp-connection-ruby/#{Adp::Connection::VERSION}"
             uri = URI.parse( url );
-            pem = File.read("#{self.connection_configuration.sslCertPath}");
-            key = File.read(self.connection_configuration.sslKeyPath);
+            pem = self.connection_configuration.sslCertPath.read;
+            key = self.connection_configuration.sslKeyPath.read;
             http = Net::HTTP.new(uri.host, uri.port);
 
             log.debug("User agent: #{useragent}")
