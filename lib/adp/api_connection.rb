@@ -139,8 +139,10 @@ module Adp
                 http.cert = OpenSSL::X509::Certificate.new( pem );
                 http.key = OpenSSL::PKey::RSA.new(key, self.connection_configuration.sslKeyPass);
                 http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-                http.cert_store = OpenSSL::X509::Store.new
-                http.cert_store.add_file(self.connection_configuration.sslCaPath)
+                if self.connection_configuration.sslCaPath
+                  http.cert_store = OpenSSL::X509::Store.new
+                  http.cert_store.add_file(self.connection_configuration.sslCaPath)
+                end
             end
 
             if method.eql?('POST')
