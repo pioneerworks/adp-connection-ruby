@@ -119,20 +119,11 @@ module Adp
           content_type ||= "application/x-www-form-urlencoded"
           method ||= 'POST'
 
-            log = Logger.new(STDOUT)
-            log.level = Logger::DEBUG
-            log.debug("URL: #{url}")
-            log.debug("Client ID: #{data["client_id"]}")
-            log.debug("Client Secret: #{data["client_secret"]}")
-            log.debug("Grant Type: #{data["grant_type"]}")
-
             useragent = "adp-connection-ruby/#{Adp::Connection::VERSION}"
             uri = URI.parse( url );
             pem = self.connection_configuration.sslCertPath.read;
             key = self.connection_configuration.sslKeyPath.read;
             http = Net::HTTP.new(uri.host, uri.port);
-
-            log.debug("User agent: #{useragent}")
 
             if (!self.connection_configuration.sslCertPath.nil?)
                 http.use_ssl = true
